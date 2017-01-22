@@ -33,8 +33,7 @@ class RestaurantsController < ApplicationController
         format.json { render :show, status: :created, location: @restaurant }
         format.js
       else
-        format.html { render :new }
-        format.json { render json: @restaurant.errors, status: :unprocessable_entity }
+        format.js { render :new }
       end
     end
   end
@@ -71,6 +70,6 @@ class RestaurantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def restaurant_params
-      params.require(:restaurant).permit(:name, :specialty_id)
+      params.require(:restaurant).permit(:name, :specialty_id, :image)
     end
 end

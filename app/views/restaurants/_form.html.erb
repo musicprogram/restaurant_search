@@ -3,7 +3,7 @@
   <%= form_for(restaurant, remote: true) do |f| %>
   <% if restaurant.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
+      <h6><%= pluralize(restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h6>
 
       <ul>
       <% restaurant.errors.full_messages.each do |message| %>
@@ -16,6 +16,10 @@
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name, class:'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image, class:'form-control' %>
   </div>
 
   <div class="field">
