@@ -10,28 +10,15 @@
 
       <div class="row cercar">
         <div id="lista_rest">
-          <p id="notice"><%= notice %></p>
+          
 
-
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Specialty</th>
-                <th>Detail</th>
-                <th>Dependence</th>
-                <th colspan="2"></th>
-              </tr>
-            </thead>
-
-            <tbody id="body_restaurante">
+          
+            <div id="body_restaurante">
               <% @restaurants.each do |restaurant| %>
-              <%= render '/restaurants/row', restaurant: restaurant%>
+                <%= render '/restaurants/row', restaurant: restaurant%>
               <% end %>
-            </tbody>
-          </table>
-
-       
+            </div>
+         
 
           <%= link_to 'New Restaurant', new_restaurant_path, remote: true %>
 
@@ -46,3 +33,5 @@
     </div>
   </div>
 </div>
+
+
