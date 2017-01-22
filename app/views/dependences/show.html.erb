@@ -1,19 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Restaurant:</strong>
-  <%= @dependence.restaurant %>
-</p>
-
-<p>
   <strong>City:</strong>
-  <%= @dependence.city %>
+  <%= @dependence.city.try(:name) %>
 </p>
 
 <p>
   <strong>Zone:</strong>
-  <%= @dependence.zone %>
+  <%= @dependence.zone.try(:name) %>
 </p>
 
-<%= link_to 'Edit', edit_dependence_path(@dependence) %> |
-<%= link_to 'Back', dependences_path %>
+<%= link_to 'Edit', edit_restaurant_dependence_path(@restaurant,@dependence) %> |
+<%= link_to 'Back', restaurant_dependences_path(@restaurant) %>

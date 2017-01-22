@@ -1,10 +1,10 @@
 class DependencesController < ApplicationController
   before_action :set_dependence, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_restaurant
   # GET /dependences
   # GET /dependences.json
   def index
-    @dependences = Dependence.all
+    @dependences = @restaurant.dependences.all
   end
 
   # GET /dependences/1
@@ -25,7 +25,7 @@ class DependencesController < ApplicationController
   # POST /dependences.json
   def create
     @dependence = Dependence.new(dependence_params)
-
+    @dependence.restaurant_id = @restaurant.id
     respond_to do |format|
       if @dependence.save
         format.html { redirect_to @dependence, notice: 'Dependence was successfully created.' }
@@ -64,7 +64,11 @@ class DependencesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dependence
-      @dependence = Dependence.find(params[:id])
+      @dependence = Dependence.find(params[:id])if params[:id] 
+    end
+
+    def set_restaurant
+      @restaurant = Restaurant.find(params[:restaurant_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

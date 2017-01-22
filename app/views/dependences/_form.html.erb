@@ -1,4 +1,4 @@
-<%= form_for(dependence) do |f| %>
+<%= form_for [@restaurant,@dependence] do |f| %>
   <% if dependence.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(dependence.errors.count, "error") %> prohibited this dependence from being saved:</h2>
@@ -12,18 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :restaurant_id %>
-    <%= f.text_field :restaurant_id %>
-  </div>
-
-  <div class="field">
     <%= f.label :city_id %>
-    <%= f.text_field :city_id %>
+    <%= f.collection_select :city_id, City.all, :id, :name, {prompt: "check city"}%> 
+
   </div>
 
   <div class="field">
     <%= f.label :zone_id %>
-    <%= f.text_field :zone_id %>
+    <%= f.collection_select :zone_id, Zone.all, :id, :name, {prompt: "check zone"}%> 
+
   </div>
 
   <div class="actions">
