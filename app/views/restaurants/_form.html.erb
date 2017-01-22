@@ -1,6 +1,30 @@
 <div class="jumbotron bajar">
-  
-  <%= form_for(restaurant, remote: true) do |f| %>
+  <style>
+    #orangeBox {
+   
+    color: #fff;    
+    font-size:57px;
+    color:white;
+    font-weight:bold;
+    margin: -15px 0px -70px 0px;
+    position: relative;
+    bottom: 50px;
+    left: 60px
+    border-radius: 5px;
+    text-shadow: -1px -2px 2px rgba(150, 150, 150, 1);
+    
+}
+
+#orangeBox:hover{
+  text-shadow: 1px 2px 16px rgba(150, 150, 150, 1);
+}
+  </style>
+  <div id="orangeBox">
+    <span id="x" onclick="toggler('topRight');">X</span>
+</div>
+ 
+ <div class="panel cercar">
+    <%= form_for(restaurant, remote: true) do |f| %>
   <% if restaurant.errors.any? %>
     <div id="error_explanation">
       <h6><%= pluralize(restaurant.errors.count, "error") %> only can be one restaurant by zone:</h6>
@@ -32,5 +56,6 @@
   </div>
 <% end %>
 
+ </div>
 
 </div>

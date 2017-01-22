@@ -16,3 +16,8 @@
 //= require bootstrap-sprockets
 //= require jquery.remotipart
 //= require_tree.
+
+
+function toggler(divId) {
+    $("#" + divId).toggle();
+}

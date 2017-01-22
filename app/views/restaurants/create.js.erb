@@ -1,5 +1,10 @@
 $('#body_restaurante').append('<%= j render "/restaurants/row", restaurant: @restaurant %>');
-$('#form_rest').slideUp(1);
+$('#topRight').slideUp(360);
 $('#lista_rest').removeClass('col-md-6');
 
+$('.cuadro').addClass('col-md-4');
+$('.cuadro').removeClass('col-sm-12');
+
+
 <%= @restaurant.errors.full_messages %>
+
