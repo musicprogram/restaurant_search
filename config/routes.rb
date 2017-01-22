@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :dependences
-  resources :restaurants
+  
+  resources :restaurants do 
+  	resources :dependences
+  end
   resources :specialties
   resources :zones
   resources :cities

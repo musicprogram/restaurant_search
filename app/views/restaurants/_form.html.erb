@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= f.label :specialty_id %>
-    <%= f.text_field :specialty_id %>
+        <%= f.collection_select :specialty_id, Specialty.all, :id, :name, {prompt: "check specialty"}%> 
   </div>
 
   <div class="actions">

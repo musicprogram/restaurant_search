@@ -18,8 +18,7 @@
 
   <div class="field">
     <%= f.label :city_id %>
-    <%= f.text_field :city_id %>
-  </div>
+    <%= f.collection_select :city_id, City.all, :id, :name, {prompt: "check city"}%> 
 
   <div class="actions">
     <%= f.submit %>
