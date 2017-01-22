@@ -19,7 +19,8 @@
 
   <div class="field">
     <%= f.label :zone_id %>
-    <%= f.collection_select :zone_id, Zone.all, :id, :name, {prompt: "check zone"}%> 
+    <%= f.grouped_collection_select :zone_id,  City.all, :zones, :name, :id, :name, {prompt: "check zone"}%> 
+
 
   </div>
 
