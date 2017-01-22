@@ -15,6 +15,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/new
   def new
     @restaurant = Restaurant.new
+    respond_to {|format| format.js}
   end
 
   # GET /restaurants/1/edit
