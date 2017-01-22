@@ -1,0 +1,32 @@
+<%= form_for(dependence) do |f| %>
+  <% if dependence.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(dependence.errors.count, "error") %> prohibited this dependence from being saved:</h2>
+
+      <ul>
+      <% dependence.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :restaurant_id %>
+    <%= f.text_field :restaurant_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city_id %>
+    <%= f.text_field :city_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :zone_id %>
+    <%= f.text_field :zone_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
