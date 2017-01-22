@@ -61,6 +61,7 @@ class DependencesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to dependences_url, notice: 'Dependence was successfully destroyed.' }
       format.json { head :no_content }
+      format.js
     end
   end
 

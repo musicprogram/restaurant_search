@@ -13,8 +13,12 @@
 
       <div class="row cercar">
         <div id="lista_rest">
-          
-
+            
+            <%= form_tag restaurants_path, :method => 'get' do %>
+              <%= text_field_tag :search, params[:search], class: 'form-control'%> <br>
+              <%= submit_tag "Search", class:'btn btn-default btn-large btn-block' %>
+            <% end %>
+          <br>
           
             <div id="body_restaurante">
               <% @restaurants.each do |restaurant| %>
@@ -23,7 +27,7 @@
             </div>
          
 
-          <%= link_to 'New Restaurant', new_restaurant_path, remote: true %>
+          <%= link_to 'Agregar restaurante', new_restaurant_path, remote: true %>
 
         </div>
 

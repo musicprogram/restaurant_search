@@ -1,11 +1,47 @@
-<h1>Dependences</h1>
 
+
+    <div id="topRight" hidden>
+      
+    </div>
+    <style>
+  
+#salir {
+   
+    color: #fff;    
+    font-size:57px;
+    color:white;
+    font-weight:bold;
+    margin: -15px 0px -70px 0px;
+    position: relative;
+    bottom: 20px;
+    left: 60px
+    border-radius: 5px;
+    text-shadow: -1px -2px 2px rgba(150, 150, 150, 1);
+    
+}
+
+#salir:hover{
+  text-shadow: 1px 2px 16px rgba(150, 150, 150, 1);
+}
+</style>
+
+<div id="salir">
+    <span id="x" onclick="toggler('topRight');">X</span>
+</div>
+  
+
+<div class="row">
+  <div class="col-md-6">
+
+
+<div class="well pad">
+  <h1>Location</h1>
 <table class="table table-hover">
   <thead>
     <tr>
       <th>City</th>
       <th>Zone</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -15,12 +51,26 @@
     <% end %>
   </tbody>
 </table>
+</div>
+
+  </div>
+  <br>
+  <div class="panel col-md-6">
+    
+<div class="text-left">
+  <%= link_to 'New Location', new_restaurant_dependence_path(@restaurant), remote: true %>
+
+</div>
+
+
+  <div id="form_de"></div>
+
+
+
+  </div>
+</div>
+
 
 <br>
 
-<%= link_to 'New Dependence', new_restaurant_dependence_path(@restaurant), remote: true %>
 
-
-<div class="well">
-  <div id="form_de"></div>
-</div>

@@ -19,35 +19,18 @@
     </p>
 
     <div class="jumbotron">
+      
+
       <center>
         <%= image_tag restaurant.image, class: 'img-responsive img-thumbnail show_logo pad' %>
           
         <div class="panel" id ="ubicacion">
         
-        <%= link_to '<b>Ubicaciones</b>'.html_safe, restaurant_dependences_path(restaurant), remote: true %>
+        <%= link_to '<b>Add Locations</b>'.html_safe, restaurant_dependences_path(restaurant), remote: true %>
           <div class="row">
+
+            <%= render '/restaurants/depen_location', restaurant: restaurant%>
             
-            <% restaurant.dependences.each do |d|%>
-                <div class="cuadro col-xs-12 col-md-4">
-                  <div class="well pad">
-                    <h2 class="text-capitalize">
-                     <%= d.city.try(:name) %>
-                    </h2>
-                    
-                      <h6 class="text-uppercase"> 
-                        <b><%= d.zone.try(:name) %> </b>
-                      </h6>
-                     <div class="panel cercar">
-                       <h6> 
-                     <b>Telefono:</b> <%= d.zone.try(:telefono) %> <br>
-                     <b>Dirección:</b> <%= d.zone.try(:direccion) %> <br>
-                     <b>Horario:</b> <%= d.zone.try(:horario) %> <br>
-                    </h6>
-                     </div>
-                  </div>
-                </div>
-                
-            <% end %>
       </div> 
         </div>
 
@@ -55,7 +38,13 @@
       <br>
       
       <%= link_to 'Edit', edit_restaurant_path(restaurant) %>
-      <%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %> <br>
+      <%= link_to 'Agregar restaurante', new_restaurant_path, remote: true %>
+
+
+
+
+
     </div>
   </div>
 </div>

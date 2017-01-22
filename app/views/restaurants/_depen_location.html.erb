@@ -1,0 +1,22 @@
+<% restaurant.dependences.order(:city_id).each do |d|%>
+
+    <div class="cuadro col-xs-12 col-md-4">
+      <div class="well pad">
+        <h2 class="text-capitalize">
+         <%= d.city.try(:name) %>
+        </h2>
+        
+          <h6 class="text-uppercase"> 
+            <b><%= d.zone.try(:name) %> </b>
+          </h6>
+         <div class="panel cercar">
+           <h6> 
+         <b>Telefono:</b> <%= d.zone.try(:telefono) %> <br>
+         <b>Dirección:</b> <%= d.zone.try(:direccion) %> <br>
+         <b>Horario:</b> <%= d.zone.try(:horario) %> <br>
+        </h6>
+         </div>
+      </div>
+    </div>
+    
+<% end %>
