@@ -5,6 +5,8 @@ class DependencesController < ApplicationController
   # GET /dependences.json
   def index
     @dependences = @restaurant.dependences.all
+    respond_to {|format| format.js}
+
   end
 
   # GET /dependences/1
@@ -15,6 +17,7 @@ class DependencesController < ApplicationController
   # GET /dependences/new
   def new
     @dependence = Dependence.new
+    respond_to {|format| format.js}
   end
 
   # GET /dependences/1/edit
@@ -30,9 +33,9 @@ class DependencesController < ApplicationController
       if @dependence.save
         format.html { redirect_to @dependence, notice: 'Dependence was successfully created.' }
         format.json { render :show, status: :created, location: @dependence }
+        format.js
       else
-        format.html { render :new }
-        format.json { render json: @dependence.errors, status: :unprocessable_entity }
+        format.js { render :new }
       end
     end
   end

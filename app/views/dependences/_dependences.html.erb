@@ -1,6 +1,6 @@
 <h1>Dependences</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>City</th>
@@ -9,19 +9,18 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody id="body_dependence">
     <% @dependences.each do |dependence| %>
-      <tr>
-        <td><%= dependence.city.try(:name) %></td>
-        <td><%= dependence.zone.try(:name) %></td>
-        <td><%= link_to 'Show', restaurant_dependence_path(dependence, @restaurant) %></td>
-        <td><%= link_to 'Edit', edit_restaurant_dependence_path(dependence, @restaurant) %></td>
-        <td><%= link_to 'Destroy', restaurant_dependence_path(dependence, @restaurant), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <%= render '/dependences/dependence', dependence: dependence%>
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Dependence', new_restaurant_dependence_path(@restaurant) %>
+<%= link_to 'New Dependence', new_restaurant_dependence_path(@restaurant), remote: true %>
+
+
+<div class="well">
+  <div id="form_de"></div>
+</div>

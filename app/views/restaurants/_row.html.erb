@@ -1,11 +1,4 @@
 
-
-
-
- 
-
-
-
 <div class="panel panel-primary">
   <div class="panel-heading">
     <h3 class="panel-title">Panel title</h3>
@@ -20,10 +13,40 @@
 
     <div class="jumbotron">
       <center>
-        <%= image_tag restaurant.image, class: 'img-responsive img-thumbnail show_logo' %>
+        <%= image_tag restaurant.image, class: 'img-responsive img-thumbnail show_logo pad' %>
+          
+        <div class="panel" id ="ubicacion">
+        
+        <%= link_to '<b>Ubicaciones</b>'.html_safe, restaurant_dependences_path(restaurant), remote: true %>
+          <div class="row">
+            
+            <% restaurant.dependences.each do |d|%>
+                <div class="col-md-4">
+                  <div class="well pad">
+                    <h4>
+                     <%= d.city.try(:name) %>
+                    </h4>
+                    
+                      <h6 class="text-uppercase"> 
+                        <b><%= d.zone.try(:name) %> </b>
+                      </h6>
+                     <div class="panel cercar">
+                       <h6> 
+                     <b>Telefono:</b> <%= d.zone.try(:telefono) %> <br>
+                     <b>Dirección:</b> <%= d.zone.try(:direccion) %> <br>
+                     <b>Horario:</b> <%= d.zone.try(:horario) %> <br>
+                    </h6>
+                     </div>
+                  </div>
+                </div>
+                
+            <% end %>
+      </div> 
+        </div>
+
       </center>  
       <br>
-      <%= link_to 'Dependence', restaurant_dependences_path(restaurant) %>
+      
       <%= link_to 'Edit', edit_restaurant_path(restaurant) %>
       <%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>

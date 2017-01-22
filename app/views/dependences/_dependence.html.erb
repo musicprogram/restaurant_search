@@ -1,0 +1,7 @@
+<tr>
+  <td><%= dependence.city.try(:name) %></td>
+  <td><%= dependence.zone.try(:name) %></td>
+  <td><%= link_to 'Show', restaurant_dependence_path(dependence, @restaurant) %></td>
+  <td><%= link_to 'Edit', edit_restaurant_dependence_path(dependence, @restaurant) %></td>
+  <td><%= link_to 'Destroy', restaurant_dependence_path(dependence, @restaurant), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>

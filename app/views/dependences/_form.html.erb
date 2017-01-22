@@ -1,7 +1,7 @@
-<%= form_for [@restaurant,@dependence] do |f| %>
+<%= form_for [@restaurant, @dependence], remote: true do |f| %>
   <% if dependence.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(dependence.errors.count, "error") %> prohibited this dependence from being saved:</h2>
+      <h6><%= pluralize(dependence.errors.count, "error") %> prohibited this dependence from being saved:</h6>
 
       <ul>
       <% dependence.errors.full_messages.each do |message| %>
@@ -13,13 +13,13 @@
 
   <div class="field">
     <%= f.label :city_id %>
-    <%= f.collection_select :city_id, City.all, :id, :name, {prompt: "check city"}%> 
+    <%= f.collection_select :city_id, City.all, :id, :name, {prompt: "check city"}, class:'form-control'%> 
 
   </div>
 
   <div class="field">
     <%= f.label :zone_id %>
-    <%= f.grouped_collection_select :zone_id,  City.all, :zones, :name, :id, :name, {prompt: "check zone"}%> 
+    <%= f.grouped_collection_select :zone_id,  City.all, :zones, :name, :id, :name, {prompt: "check zone"} , class:'form-control'%> 
 
 
   </div>

@@ -3,7 +3,7 @@
   <%= form_for(restaurant, remote: true) do |f| %>
   <% if restaurant.errors.any? %>
     <div id="error_explanation">
-      <h6><%= pluralize(restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h6>
+      <h6><%= pluralize(restaurant.errors.count, "error") %> only can be one restaurant by zone:</h6>
 
       <ul>
       <% restaurant.errors.full_messages.each do |message| %>
