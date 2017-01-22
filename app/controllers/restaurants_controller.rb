@@ -31,6 +31,7 @@ class RestaurantsController < ApplicationController
       if @restaurant.save
         format.html { redirect_to @restaurant, notice: 'Restaurant was successfully created.' }
         format.json { render :show, status: :created, location: @restaurant }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @restaurant.errors, status: :unprocessable_entity }
