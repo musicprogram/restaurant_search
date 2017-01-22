@@ -2,7 +2,7 @@
   <td><%= restaurant.name %></td>
   <td><%= restaurant.specialty.try(:name) %></td>
   <td>
-  <%= link_to  restaurant do %>
+  <%= link_to  restaurant, remote:true do %>
   	<%= image_tag restaurant.image, class: 'in_logo' %>
   <% end %>	
   </td>
