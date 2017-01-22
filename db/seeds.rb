@@ -3,6 +3,12 @@
 #
 # Examples:
 # => 
-		Specialty.create(name: 'especialidad 1')
+		
     Restaurant.create(name: 'Star Wars', specialty_id: 1)
 #   Character.create(name: 'Luke', movie: movies.first)
+		
+		20.times.each do 
+			City.create(:name => Faker::Address.city)
+			Zone.create(:name => Faker::Address.street_name, :city_id => Faker::Number.between(from = 1, to = 20), :telefono => Faker::PhoneNumber.cell_phone, :direccion => Faker::Address.street_address , :horario => Faker::Date.between(30.days.ago, Date.today))
+			Specialty.create(:name => Faker::Company.suffix)
+		end	
