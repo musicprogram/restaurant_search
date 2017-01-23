@@ -1,24 +1,21 @@
-# README
+La base de datos es postgres
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+rvm use ruby-2.4.0
 
-Things you may want to cover:
+rvm gemset use rails5.0
 
-* Ruby version
+en restaurant los metodos que funcionan son el de create y el new en format.js 
 
-* System dependencies
 
-* Configuration
+tablas
 
-* Database creation
+City => has_many Zones
+Zones => belongs_to City
 
-* Database initialization
+Speciality => has_many Restaurants
+Restaurants => belongs_to Speciality 
+Restaurants => has_many  Dependences 
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Dependences => belongs_to Restaurant
+Dependences => belongs_to City
+Dependences => belongs_to Zone
