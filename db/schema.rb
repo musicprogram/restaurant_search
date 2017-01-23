@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20170122031935) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "cities", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -24,9 +27,9 @@ ActiveRecord::Schema.define(version: 20170122031935) do
     t.integer  "zone_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["city_id"], name: "index_dependences_on_city_id"
-    t.index ["restaurant_id"], name: "index_dependences_on_restaurant_id"
-    t.index ["zone_id"], name: "index_dependences_on_zone_id"
+    t.index ["city_id"], name: "index_dependences_on_city_id", using: :btree
+    t.index ["restaurant_id"], name: "index_dependences_on_restaurant_id", using: :btree
+    t.index ["zone_id"], name: "index_dependences_on_zone_id", using: :btree
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -35,7 +38,7 @@ ActiveRecord::Schema.define(version: 20170122031935) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "image"
-    t.index ["specialty_id"], name: "index_restaurants_on_specialty_id"
+    t.index ["specialty_id"], name: "index_restaurants_on_specialty_id", using: :btree
   end
 
   create_table "specialties", force: :cascade do |t|
@@ -52,7 +55,12 @@ ActiveRecord::Schema.define(version: 20170122031935) do
     t.integer  "city_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["city_id"], name: "index_zones_on_city_id"
+    t.index ["city_id"], name: "index_zones_on_city_id", using: :btree
   end
 
+  add_foreign_key "dependences", "cities"
+  add_foreign_key "dependences", "restaurants"
+  add_foreign_key "dependences", "zones"
+  add_foreign_key "restaurants", "specialties"
+  add_foreign_key "zones", "cities"
 end
